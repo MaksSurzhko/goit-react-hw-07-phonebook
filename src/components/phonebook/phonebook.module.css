@@ -84,12 +84,12 @@
         height: 20px;
         width: 170px;
         transition: 250ms;
-        background-color: rgb(243, 227, 212);
+        /* background-color: rgb(243, 227, 212); */
 }
 
 .cinput:hover,
 .cinput:focus {
-    border: 3px solid rgb(201, 106, 18);
+    border: 3px solid rgb(51, 51, 51);
     border-radius: 10px;
     transition: 250ms;
     width: 190px;
