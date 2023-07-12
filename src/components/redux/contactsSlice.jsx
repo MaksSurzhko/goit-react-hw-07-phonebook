@@ -1,45 +1,3 @@
-// import { createSlice, nanoid } from '@reduxjs/toolkit';
-
-
-// const contactsInitialState = {
-//   items: [],
-//   isAdding: false,
-//   isDeleting: false,
-//   // isLoading: false,
-//   error: null,
-// };
-// // const contactsInitialState = [];
-
-// export const contactsSlice = createSlice({
-//   name: 'contacts',
-//   initialState: contactsInitialState,
-//   reducers: {
-//     addUser: {
-//       reducer(state, action) {
-//         state.push(action.payload);
-//       },
-//       prepare(name, number) {
-//         return {
-//           payload: {
-//             id: nanoid(),
-//             name,
-//             number,
-//           },
-//         };
-//       },
-//     },
-//     deleteUser(state, action) {
-//       return state.filter((user) => user.id !== action.payload);
-//     },
-//   },
-// });
-
-// export const { deleteUser, addUser } = contactsSlice.actions;
-// export const selectContacts = (state) => state.contacts;
-// export const selectFilter = (state) => state.filter;
-// export const contactsReducer = contactsSlice.reducer;
-
-
 import { createSlice } from '@reduxjs/toolkit';
 // import { fetchContacts, addContact, deleteContact } from './thunk';
 import { getContacts, postContact, delContact } from '../redux/thunk';
@@ -50,7 +8,6 @@ const contactsInitialState = {
   isLoading: false,
   error: null
 };
-// const contactsInitialState = [];
 
 
 export const fetchContacts = createAsyncThunk(
@@ -64,7 +21,7 @@ export const fetchContacts = createAsyncThunk(
   }
 );
 
-// contacts/addContact
+
 export const addContact = createAsyncThunk(
   'contacts/addContact',
   async (newContact, { rejectWithValue }) => {
@@ -77,7 +34,7 @@ export const addContact = createAsyncThunk(
   }
 );
 
-// contacts/deleteContact
+
 export const deleteContact = createAsyncThunk(
   'contacts/deleteContact',
   async (contactID, { rejectWithValue }) => {
