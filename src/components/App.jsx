@@ -63,8 +63,8 @@ import ContactForm from "../components/contform/form";
 import Filter from "../components/filter/filter";
 import ContactList from "../components/contlist/list";
 import { useEffect } from "react";
-import { selectFilter, selectContacts } from "../components/redux/contactsSlice";
-import {addContact, deleteContact, fetchContacts} from "../components/redux/thunk"
+import { selectFilter, selectContacts } from "./redux/selectors";
+import {addContact, deleteContact, fetchContacts} from "../components/redux/contactsSlice"
 import { filterUser } from "./redux/filterSlice";
 
 const Phonebook = () => {

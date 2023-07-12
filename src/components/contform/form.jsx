@@ -85,8 +85,8 @@
 import React, { useState } from "react";
 import { useDispatch,useSelector } from "react-redux";
 import fcss from "../contform/form.module.css";
-import { selectContacts } from "../redux/contactsSlice";
-import { addContact } from "../redux/thunk";
+import { selectContacts } from "../redux/selectors";
+import { addContact } from "../redux/contactsSlice";
 
 const ContactForm = () => {
   const dispatch = useDispatch();
@@ -97,20 +97,33 @@ const ContactForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
+  const isDuplicateContact = contacts.some(
+    (contact) => contact.name === name || contact.number === number
+  );
+
+  if (isDuplicateContact) {
+    alert(`${name} is already in contacts`);
+    return;
+  }
+
+  dispatch(addContact({ name, number }));
+  setName("");
+  setNumber("");
+};
     
-    const isDuplicateContact = contacts.some(
-      (contact) => contact.name === name || contact.number === number
-    );
+  //   const isDuplicateContact = contacts.some(
+  //     (contact) => contact.name === name || contact.number === number
+  //   );
 
-    if (isDuplicateContact) {
-      alert(`${name} is already in contacts`);
-      return;
-    }
+  //   if (isDuplicateContact) {
+  //     alert(`${name} is already in contacts`);
+  //     return;
+  //   }
 
-    dispatch(addContact( name, number ));
-    setName("");
-    setNumber("");
-  };
+  //   dispatch(addContact( name, number ));
+  //   setName("");
+  //   setNumber("");
+  // };
 
   // const handleSubmit = (event) => {
   //   event.preventDefault();

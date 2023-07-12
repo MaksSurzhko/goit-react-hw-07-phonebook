@@ -38,7 +38,7 @@
 import React from "react";
 import { useDispatch } from "react-redux";
 import lcss from "../contlist/list.module.css";
-import { deleteContact } from "../redux/thunk";
+import { deleteContact } from "../redux/contactsSlice";
 
 const ContactList = ({contacts, filter}) => {
   const dispatch = useDispatch();
